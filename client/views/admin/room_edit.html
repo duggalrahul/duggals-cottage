@@ -1,0 +1,88 @@
+<template name="roomEdit">
+{{#with room}}
+	<div class="row text-center">
+			<div class="col-xs-12">
+				<h1>Edit {{name}}</h1>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<button class="btn btn-default debug">Debug</button>
+			<button class="btn btn-default pull-right">Save</button>
+			<button class="btn btn-default pull-right">Delete</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="serial_number">Serial Number : </label>
+		</div>
+		<div class="col-xs-8">
+			<select>
+				{{#each serialNumber}}
+					<option myattr="serial_number" value="{{number}}">{{number}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="name">Name : </label>
+		</div>
+		<div class="col-xs-8">
+			<input myattr="name" id="name" value="{{name}}">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="description">Description : </label>
+		</div>
+		<div class="col-xs-8">
+			<input myattr="description" id="description" value="{{description}}">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="bookable">Bookable : </label>
+		</div>
+		<div class="col-xs-8">
+			<div class="btn-group" data-toggle="buttons-radio" id="bookable">
+		      <input myattr="bookable" type="radio" class="is-bookable" name="bookable" value="1">Yes
+		      <input myattr="bookable" type="radio" class="is-bookable" name="bookable" value="0">No
+		    </div>			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="capacity">Capacity : </label>
+		</div>
+		<div class="col-xs-8">
+			<select>
+				{{#each roomCapacity}}
+					<option myattr="capacity" value="{{number}}">{{number}} persons</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="features">Features : </label>
+		</div>
+		<div class="col-xs-8">
+			<input myattr="features" class="new-feature"  value="">
+			<button class="add-feature">Add</button>
+			<ul>
+				{{#each features}}
+					<li>{{description}} <a href=""><i class="fa fa-times remove-feature"></i></a>
+</li>  
+				{{/each}}                              
+            </ul>
+			
+		</div>
+	</div>
+{{/with}}
+</template>
