@@ -26,3 +26,5 @@ mrt:jquery-easing
 fortawesome:fontawesome
 reactive-var
 underscore
+cfs:standard-packages
+cfs:filesystem

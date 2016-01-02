@@ -22,19 +22,25 @@ Router.route('/navigate',function(){
 })
 
 Router.route('/rooms/list',function(){
-	this.render('roomsList')
+	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images')]);
+	if(this.ready()){
+		this.render('roomsList')
+	}
 },{
 	name : 'rooms.list'
 });
 
 Router.route('/rooms/edit',function(){
-	this.render('roomsEdit')
+	this.wait([Meteor.subscribe('Rooms')]);
+	if(this.ready()){
+		this.render('roomsEdit');
+	}	
 },{
 	name : 'rooms.edit'
 });
 
 Router.route('/rooms/view/:_id',function(){
-	this.wait([Meteor.subscribe('Rooms')]);
+	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images')]);
 	if(this.ready()){
 		this.render('roomEdit');	
 	}	
