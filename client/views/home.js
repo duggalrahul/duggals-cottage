@@ -1,5 +1,0 @@
-Template.homePage.onRendered(function(){
-
-
-	
-});

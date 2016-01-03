@@ -38,7 +38,6 @@ Router.route('/rooms/edit',function(){
 },{
 	name : 'rooms.edit'
 });
-
 Router.route('/rooms/view/:_id',function(){
 	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images')]);
 	if(this.ready()){
@@ -50,3 +49,25 @@ Router.route('/rooms/view/:_id',function(){
 				return rooms.findOne(this.params._id);
 			}
 })
+
+Router.route('/tarriffs/edit',function(){
+	this.wait([Meteor.subscribe('Tarriffs')]);
+	if(this.ready()){
+		this.render('tarriffsEdit');
+	}	
+},{
+	name : 'tarriffs.edit'
+});
+
+Router.route('/tarriffs/view/:_id',function(){
+	this.wait([Meteor.subscribe('Tarriffs')]);
+	if(this.ready()){
+		this.render('tarriffEdit');	
+	}	
+},{
+	name : 'tarriffs.view',
+	data : function(){
+				return tarriffs.findOne(this.params._id);
+			}
+})
+

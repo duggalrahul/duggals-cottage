@@ -4,3 +4,6 @@ Meteor.publish('Rooms',function(){
 Meteor.publish('Images', function(){ 
 	return images.find(); 
 });
+Meteor.publish('Tarriffs', function(){ 
+	return tarriffs.find(); 
+});
