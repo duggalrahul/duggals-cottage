@@ -1,0 +1,90 @@
+<template name="tarriffEdit">
+{{#with tarriff}}
+	<div class="row text-center">
+		<div class="col-xs-12">
+			<h1>Edit {{name}}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<button class="btn btn-default debug">Debug</button>
+			<button class="btn btn-default pull-right save-tarriff">Save</button>
+			<button class="btn btn-default pull-right delete-tarriff">Delete</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="serial_number">Serial Number : </label>
+		</div>
+		<div class="col-xs-8">
+			{{serial_number}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="name">Name : </label>
+		</div>
+		<div class="col-xs-8">
+			<input myattr="name" id="name" value="{{name}}">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="description">Description : </label>
+		</div>
+		<div class="col-xs-8">
+			<input myattr="description" id="description" value="{{description}}">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="state">State : </label>
+		</div>
+		<div class="col-xs-8">
+			<select>
+				{{#each tarriffStates}}
+					<option myattr="state" value="{{value}}" {{isSelected 'state' 'value'}}>{{value}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="period_start_date">Period Start Date : </label>
+		</div>
+		<div class="col-xs-4">
+			<div class="input-group datetimepicker">
+			    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i>
+			    </span>
+		    	<input myattr="period_start_date" value="{{period_start_date}}" class="set-due-date form-control" >
+			</div>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="period_end_date">Period End Date : </label>
+		</div>
+		<div class="col-xs-4">
+			<div class="input-group datetimepicker">
+			    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i>
+			    </span>
+		    	<input myattr="period_end_date" value="{{period_end_date}}" class="set-due-date form-control">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="cost_per_night">Cost Per Night (Rs) : </label>
+		</div>
+		<div class="col-xs-8">
+			<input myattr="cost_per_night" id="cost_per_night" value="{{cost_per_night}}">
+		</div>
+	</div>
+{{/with}}
+
+</template>

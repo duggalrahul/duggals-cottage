@@ -30,5 +30,15 @@ Meteor.methods({
 			room.serial_number = roomObject.serial_number + index;
 			rooms.update({_id:room._id},room);
 		})
+	},
+	updateTarriff : function(tarriffObject){
+		tarriffs.update({_id:tarriffObject._id},tarriffObject);
+	},
+	removeTarriff : function(tarriffObject){
+		tarriffs.remove({_id:tarriffObject._id});
+		_.each(tarriffs.find({serial_number : {$gt : tarriffObject.serial_number}},{sort:{serial_number:1}}).fetch(),function(tarriff,index){
+			tarriff.serial_number = tarriffObject.serial_number + index;
+			tarriffs.update({_id:tarriff._id},tarriff);
+		})
 	}
 });
