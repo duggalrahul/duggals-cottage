@@ -22,7 +22,7 @@ Router.route('/navigate',function(){
 })
 
 Router.route('/rooms/list',function(){
-	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images')]);
+	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images'),Meteor.subscribe('Tarriffs')]);
 	if(this.ready()){
 		this.render('roomsList')
 	}
@@ -31,7 +31,7 @@ Router.route('/rooms/list',function(){
 });
 
 Router.route('/rooms/edit',function(){
-	this.wait([Meteor.subscribe('Rooms')]);
+	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Tarriffs')]);
 	if(this.ready()){
 		this.render('roomsEdit');
 	}	
@@ -39,7 +39,7 @@ Router.route('/rooms/edit',function(){
 	name : 'rooms.edit'
 });
 Router.route('/rooms/view/:_id',function(){
-	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images')]);
+	this.wait([Meteor.subscribe('Rooms'),Meteor.subscribe('Images'),Meteor.subscribe('Tarriffs')]);
 	if(this.ready()){
 		this.render('roomEdit');	
 	}	

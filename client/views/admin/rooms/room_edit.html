@@ -56,6 +56,21 @@
 		    </div>			
 		</div>
 	</div>
+	{{#if bookable}}
+	<div class="row">
+		<div class="col-xs-4">
+			<label class="pull-right" for="tarriff_id">Tarriff : </label>
+		</div>
+		<div class="col-xs-8">
+			<select>
+				{{#each roomTarrifs}}
+					<option myattr="tarriff_id" value="{{_id}}" {{isSelected 'tarriff_id' '_id'}}>{{name}} - (Rs. {{cost_per_night}})</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+
+	{{/if}}
 	<div class="row">
 		<div class="col-xs-4">
 			<label class="pull-right" for="capacity">Capacity : </label>

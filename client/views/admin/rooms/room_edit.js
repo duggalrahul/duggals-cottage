@@ -29,6 +29,9 @@ Template.roomEdit.helpers({
 		var roomObject = Template.instance().roomRV.get();
 		return images.findOne(roomObject.image_id);
 	},
+	roomTarrifs : function(){
+		return tarriffs.find({state:'ACTIVE'},{sort:{cost_per_night:1}});
+	},
 	length : function(str){
 		return str.length;
 	}
@@ -60,7 +63,13 @@ Template.roomEdit.events({
 		for(var i=0;i<keys.length;i++){if(!isNaN(keys[i]))keys[i]=+keys[i]};
 		for(var i=0;i<keys.length-1;i++) copy = copy[keys[i]];
 
-		copy[keys[i]] = +event.target.value;	
+		if(typeof event.target.value == 'string'){
+			copy[keys[i]] = event.target.value;	
+		}
+		else{
+			copy[keys[i]] = +event.target.value;
+		}
+		
 
 		Template.instance().roomRV.set(roomObject);
 	},

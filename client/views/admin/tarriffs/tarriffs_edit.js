@@ -11,6 +11,7 @@ Template.tarriffsEdit.events({
 			serial_number : tarriffs.find().fetch().length+1,
 			name : '',
 			description : '',
+			type : 'ROOM',
 			period_start_date : '',
 			period_end_date : '',
 			state : 'DRAFT',

@@ -1,6 +1,7 @@
 Template.tarriffEdit.onCreated(function(){
 	this.tarriffRV = new ReactiveVar(tarriffs.findOne(this.data._id));
 	this.tarriffStates = [{value:'ACTIVE'},{value:'DRAFT'}];
+	this.tarriffTypes = [{value:'ROOM'},{value:'ROOM-SERVICE'},{value:'CAR-WASH'}];
 });
 
 Template.tarriffEdit.onRendered(function(){
@@ -13,6 +14,9 @@ Template.tarriffEdit.helpers({
 	},
 	tarriffStates : function(){
 		return Template.instance().tarriffStates;
+	},
+	tarriffTypes : function(){
+		return Template.instance().tarriffTypes;
 	},
 	isSelected : function(key1,key2){
 		var tarriffObject = Template.instance().tarriffRV.get();

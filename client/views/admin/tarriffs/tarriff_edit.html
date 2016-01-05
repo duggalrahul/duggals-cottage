@@ -35,6 +35,18 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-4">
+			<label class="pull-right" for="type">Type : </label>
+		</div>
+		<div class="col-xs-8">
+			<select>
+				{{#each tarriffTypes}}
+					<option myattr="type" value="{{value}}" {{isSelected 'type' 'value'}}>{{value}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
 			<label class="pull-right" for="description">Description : </label>
 		</div>
 		<div class="col-xs-8">

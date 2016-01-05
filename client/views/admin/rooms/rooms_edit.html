@@ -18,6 +18,7 @@
 						<th>Name</th>
 						<th>Capacity</th>
 						<th>Bookable</th>
+						<th>Tarriff</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,6 +28,7 @@
 						<td><a href="{{pathFor route='rooms.view' _id=this._id}}">{{name}}</a></td>
 						<td>{{capacity}}</td>
 						<td>{{bookable}}</td>
+						<td>{{#if length tarriff_id}}{{roomTarriff.cost_per_night}}{{else}}-{{/if}}</td>
 					</tr>
 					{{/each}}
 				</tbody>				
