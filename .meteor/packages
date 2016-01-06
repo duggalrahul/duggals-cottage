@@ -29,3 +29,5 @@ underscore
 cfs:standard-packages
 cfs:filesystem
 tsega:bootstrap3-datetimepicker
+accounts-ui
+accounts-password
